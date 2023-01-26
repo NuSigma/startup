@@ -1,5 +1,5 @@
 # startup
 BYU CS260 Web Programming Project
 
-Test modification from GitHub
+Merge conflict from GitHub
 Test modification from GitHub2
