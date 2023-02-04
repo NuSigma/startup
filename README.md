@@ -20,4 +20,18 @@ Command for ssh into webserver:
 ssh -i 'CS260(Key Pair Login).pem' ubuntu@18.219.210.238
 
 
+### Feb 1, 2023 - AWS - Route 53
+My new Domain Name: 
+http://numealplanz.click/
+
+### Feb 3, 2023 - HTTP, TLS, and Web Certificates
+Caddy handels manage gateway to web services.
+ssh into webserver then:
+    1. cd ~
+    2. sudo vi Caddyfile
+    3. :wq (to save and exit VI)
+    4. sudo service caddy restart (to restart caddy for changes to take effect)
+
+
+
 
