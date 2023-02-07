@@ -33,5 +33,11 @@ ssh into webserver then:
     4. sudo service caddy restart (to restart caddy for changes to take effect)
 
 
-
+### Feb 6-7, 2023 - HTML: intro,input,media, and structure
+HTML Basics Resource: https://developer.mozilla.org/en-US/docs/Web/HTML#beginners_tutorials
+HTML Basic Structure: https://github.com/webprogramming260/.github/raw/main/profile/html/structure/htmlStructure.jpg
+HTML Input Elements Resource & Example: 
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+https://codepen.io/NuSigma/pen/yLqWBrg
+HTML Media Basics Example Codepen: https://codepen.io/NuSigma/pen/OJwYJRy
 
