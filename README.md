@@ -42,9 +42,9 @@ https://codepen.io/NuSigma/pen/yLqWBrg
 HTML Media Basics Example Codepen: https://codepen.io/NuSigma/pen/OJwYJRy
 
 
-### Feb 8, 2023 - HTML Website & Simon, and CSS
+### Feb 8, 2023 - HTML Website & Simon, and Cascading Style Sheets (CSS)
 WEBSITE:
-Running deployWebsite.sh to push html changes to caddy:
+> Running deployWebsite.sh to push main page changes to caddy:
 ./deployWebsite.sh  -k ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem -h numealplanz.click
-
-
+> Running deployFiles.sh to push SIMON changes to caddy:
+./deployFiles.sh -k ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem -h numealplanz.click -s simon
