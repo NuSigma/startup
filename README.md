@@ -54,3 +54,40 @@ https://codepen.io/NuSigma/pen/OJwYJRy
 2. Running deployFiles.sh to push SIMON changes to caddy:<br>
 ``` ./deployFiles.sh -k ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem -h numealplanz.click -s simon ```
 
+### Feb 10, 2023 - CSS: Selctors,Declaration,Fonts,Animation
+1. CSS Selectors - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors<br>
+Used to select parts of HTML code to then apply a rule (i.e. styling) to.<br>
+Basic Types of Selectors: Element Type, Combinators, Class, ID, Attribute, and Pseudo  <br>
+Codepen Example: https://codepen.io/NuSigma/pen/Yzjmpoe <br>
+
+2. CSS (Rule) Declarations - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference<br>
+Used to assign a property and value to the selected parts of the HTML.<br>
+Values & Units: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units <br>
+Coloring: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Applying_color <br>
+Codepen Example: https://codepen.io/NuSigma/pen/BaPXpmX <br>
+
+3. CSS Fonts - https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts<br>
+The "font-family" property defines what fonts to use. The first font available in the list will be used.<br>
+Four Major Font Families: Serif, san-serif, fixed, and symbol.<br>
+Importing Custom Fonts: <br>
+```
+@font-face {
+  font-family: '[Font Name]';
+  src: url('[Source URL for font].woff2');
+}
+```
+Or you can import them in from a font provider like https://fonts.google.com/ <br>
+By using:<br>
+```
+@import url('[Embed Link for Font]');
+```
+Codepen Example: https://codepen.io/NuSigma/pen/vYaogRv<br>
+
+4. CSS Animation - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations<br>
+Done using "animation" properties and defining "keyframes"<br>
+Simple Text Animation: https://codepen.io/NuSigma/pen/zYLgNmp<br>
+Animating a Watch: https://codepen.io/NuSigma/pen/LYBwxgJ<br>
+
+### Feb 13, 2023 - CSS Practice
+Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
+
