@@ -1,5 +1,6 @@
 # "startup" - BYU CS260 Web Programming Project
 
+<a href='https://github.com/webprogramming260/.github/blob/main/profile/instructionTopics.md#readme'>The Class GitHub</a>
 ## Notes:
 ### Jan 25, 2023
 <p>
@@ -111,8 +112,11 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         ```
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         ```
-    - float - moves an element to leaft or right of its container and allows inline elements to wrap around it. <a href='https://codepen.io/NuSigma/pen/XWPJePo'>Experiment here</a> 
+    - <code>float</code> - moves an element to leaft or right of its container and allows inline elements to wrap around it. <a href='https://codepen.io/NuSigma/pen/XWPJePo'>Experiment here</a> 
     - <code>@media</code> selector- dynamically detects the size and orientation of the viewport and applies CSS rules to accommodate any change.
-    
-
+    - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">Grid</a> - useful when you want to display a group of child elements in a responsive grid. <br>
+    <a href="https://codepen.io/NuSigma/pen/vYzEWLg">CodePen</a> <br>
+    <a href="https://gridbyexample.com/">Grid by Example</a> <br>
+    - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Flex</a> - useful for partitioning application into areas that responsivly move as the window resizes or orientation changes. See the <a href="https://codepen.io/NuSigma/pen/qBMEVqb">CodePen</a>.
+- Assignment: <a href='https://codepen.io/NuSigma/pen/ExeabZa'>CodePen<a>
 
