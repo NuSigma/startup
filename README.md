@@ -127,4 +127,7 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - <a href='https://getbootstrap.com/docs/5.2/getting-started/introduction/'>Bootstrap</a> - Most Popular. <a href='https://codepen.io/NuSigma/pen/zYJGQOd'>CodePen Example</a>
     - Assignment <a href='https://codepen.io/NuSigma/pen/WNgvBNv'>CodePen</a>
 
-
+### Feb 18-21, 2023 - CSS Simon, UX Design
+- CSS Simon
+    - updated <a href="https://simon.numealplanz.click/">simon on my website</a>
+- UX Design
