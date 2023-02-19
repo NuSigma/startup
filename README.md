@@ -118,5 +118,13 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     <a href="https://codepen.io/NuSigma/pen/vYzEWLg">CodePen</a> <br>
     <a href="https://gridbyexample.com/">Grid by Example</a> <br>
     - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Flex</a> - useful for partitioning application into areas that responsivly move as the window resizes or orientation changes. See the <a href="https://codepen.io/NuSigma/pen/qBMEVqb">CodePen</a>.
-- Assignment: <a href='https://codepen.io/NuSigma/pen/ExeabZa'>CodePen<a>
+- Assignment: <a href='https://codepen.io/NuSigma/pen/ExeabZa'>CodePen</a>
+
+### Feb 17, 2023 - Debugging CSS, Frameworks
+- <a href='https://codepen.io/NuSigma/pen/ExeabZa'>Debugging</a>: Right click and select 'inspect'. (Or use F12)
+- Frameworks - Provide functions and components that commonly appear in web applications.
+    - Tailwind: uses smaller definitions applied specifically to individual HTML elements.
+    - <a href='https://getbootstrap.com/docs/5.2/getting-started/introduction/'>Bootstrap</a> - Most Popular. <a href='https://codepen.io/NuSigma/pen/zYJGQOd'>CodePen Example</a>
+    - Assignment <a href='https://codepen.io/NuSigma/pen/WNgvBNv'>CodePen</a>
+
 
