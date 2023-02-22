@@ -131,3 +131,149 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 - CSS Simon
     - updated <a href="https://simon.numealplanz.click/">simon on my website</a>
 - UX Design
+    - Design a story: user entering a stage(your website).
+    - Simplicity: visually appealing and engaging, focused on a single purpose.
+    - Consistent: Tention between familiarity of being similar to other websites the user has used, and being unique and interesting. Use the standard layout.
+    - Navigation: Carefully design flow of your application so user never gets lost. 
+        - Step 1 in buildig your application should be a concise application map.
+        - Step 2 navigation controls that follow the application map that are consistent with the devices that may be used.
+        - breadcrumb control: listing the path to where they are and how they got there
+        - anticipate where a user will commonly want to go based on where they are.
+    - Colors: usually need a primary, secondary, and focus color.
+        - free color palett picking tools: <a href="https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF">Paletton</a> and <a href="https://color.adobe.com/create/color-wheel">Adobe</a>
+        - Stick with your color scheme to avoid a chaotic rainbow of a website, even consider it when selecting font colors and images.
+    - Typography:
+        - Types of Fonts:
+            - San Serif = only major strokes
+            - Serif = Minor strokes off the major strokes
+            - Monospace = all letters the same size
+            - Handwritting = cursive strokes
+        - Usually want 3 or less fonts on your website. And they should be consistently used each for their designated purpose (i.e. buttons, links, headings, body, coding examples, etc) Commonly: San Serif fonts for buttons, navigation links, and body text, Serif fonts for paragraph headings, and Monospaced fonts for coding examples or text that need alignment.
+        - <a href="https://fonts.google.com/about">Google's Open Collection of Free Fonts</a>
+    - Iconography: Standardized icons reduce the learning curve for using your website. Icons provide a visually appealing and space saving alternative to text. There are lots of standard icon packages to choose from.
+    - Text:
+        - Common Sizing Standards: (Not hard rules, consistency is most important)
+            - Page Title: 96 px
+            - Titles: 20-48 px
+            - Text: 16 px
+            - Secondary text: 14 px
+            - Input: 16 px
+        - Line length: Usually 60 to 80 characters is ideal. Set with <code>max-width</code> and usually use <code>em</code> as units. (Note: <code>em</code> is approx. the width of 'm' in the font, which is ~double the width of other characters so 60-60 characters would be ~30-40 em.)
+    - Internationalization: Should be planned from the beginning. Need to consider: direction of reading, translation of content, ability to select desired language, formatting and symbols, and Icons.
+    - Space: space around your application can help lessen the effor the user needs to exert to interperate the information.
+    - Interaction: powerful way to engage user
+    - Images: can convey deeper understanding than words, and make it more visually appealing. Avoid using as space fillers which distract.
+    - Animation: Can help confirm choices, demonstrate progress, and focus attention, but too much can cause motion sickness.
+    - Decision Fatigue: Hick's Law states that the time necessary to make a decision increases logarithmically with the number of choices presented. Separate when choices are made to reduce decision fatigue.
+    - Device aware: The more seamless the application is integrated with the device the more intuitive and useful the application will be.
+    - Device Size and Orientation: properly reorient and alter the functionality of your application based on users display, especially on mobile devices.
+    - <a href="https://developer.mozilla.org/en-US/docs/Web/Performance">Performance:</a>  According to a <a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/">study</a> past 5 seconds of loading 90% of users will leave before loading completion. Loading under 1 second is ideal, but can mitigate effect of longer load timse by giving impression of progress, partially loading some content, or displaying loading animation. Use Chrome debugging tools performance and network tabs. Or Lighthouse tool for app analysis.
+    - Short Circuit: When outside factors impact your website, consider how to create an good experience even when unable to provice full functionality. "fallback functionality" if something goes wrong.
+    - <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">Accessibility:</a> 
+        - Visual: High contrast themes, color selection, screen readers
+        - Audio: Closed captions, textual aternatives, visual animation
+        - Physical: Keyboar navitgation, element ordering
+    - Legal: "Every industry and local has different legal constraints. You should be aware of the major legislation that impacts your application."
+    - Walls: Things that hinder a user's experience with an application
+        - Complexity: More features means higher learning curve
+        - Payment: User should see value in what they're paying for before seeing pay wall. 
+        - App Failure
+        - Security: Authentication of user. Should be proportional to value of resource you are securing. Consider frequency and complexity.
+        - Legal: Protect the vendor. i.e. terms and conditions
+- Assignment: Find a web application that is particularly interesting to you, submit the URL of the application, along with a comment about what you found interesting. <a href="https://cplusplus.com/">An interesting webpage?</a>
+
+### Feb 21-22, 2023 - JavaScript: Intro, Consol, Adding to HTML, and "Types, Operators, Conditonals, and Loops"
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> Intro: Officially known as <a href="https://tc39.es/ecma262/">ECMAScript.</a>
+- The JS <a href="https://developer.mozilla.org/en-US/docs/Web/API/console">Console</a>:
+    - Output a log message: 
+        ```
+        console.log('%c JavaScript Demo', 'font-size:1.5em; color:green;');
+        // OUTPUT: JavaScript Demo //in large green text
+        ```
+    - Timer: Outputs duration of a piece of code.
+        ```
+        console.time('demo time');
+        // ... some code that takes a long time.
+        console.timeEnd('demo time');
+        // OUTPUT: demo time: 9762.74 ms
+        ```
+    - Count: Counts how many times a code block is called.
+        ```
+        console.count('a');
+        // OUTPUT: a: 1
+        console.count('a');
+        // OUTPUT: a: 2
+        console.count('b');
+        // OUTPUT: b: 1
+        ```
+- Adding JS to HTML: 
+    1. By directly including it within the content of a <code>&lt;script&gt;</code> element
+    2. By using the src attribute to reference an external javascript file. 
+        <br>i.e.
+        ```
+        <head>
+            <script src="javascript.js"></script>
+        </head>
+        ```
+        Then call the functions from the JS file in the HTML.
+- JS Type and Construct:
+    - Variables:
+        ```
+        let x = 1; //A manipulatable variable (do not use "var")
+
+        const y = 2; //A constant variable
+        ```
+    - Types:
+        - Primitive:
+            - Null:
+            - Undefined:
+            - Boolean:
+            - Number:
+            - BigInt:
+            - String:
+            - Symbol:
+        - Object Types:
+            - Object: collection of properties of name:value pairs
+            - Function: Object that can be called
+            - Date: 
+            - Array: Ordered sequence of any type
+            - Map: collection of key value pairs, supports efficient lookups
+            - JSON: lightweight data-interchange format, used for sharing info across programs
+        - Common Operators:
+            - +: Add(Numbers) or Concatenate(Strings)
+            - -: Subtract
+            - *: Multiply
+            - /: Divide
+            - ===: Strict Equality (Numbers or Strings), strict means it does not type convert.
+            - &&: And (boolean)
+            - ||: Or (boolean)
+            - !: Not (boolean)
+        - Type Conversions: JS is weakly typed: All variables have a type but it can change at any time. This can cause funny errors if not careful.
+    - Conditionals:
+        - if, else, and else if:
+            ```JavaScript
+            if (a === 1) {
+            //...
+            } else if (b === 2) {
+            //...
+            } else {
+            //...
+            }
+            ```
+            - Alternatively, use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">ternary</a> operator:
+                ```JavaScript
+                condition ? exprIfTrue : exprIfFalse
+                ```
+            - Can also use the boolean operators
+    - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration">Loops</a>:
+        - for: Standard
+        - while: Standard
+        - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch">switch</a>:
+        - do while: while loop, except does once before checking conditionals
+        - for in: iterates over an JS Object's properties' NAMES (or an Array's indexes)
+        - for of: iterates over an iterable's (Array, Map, Set, etc) property VALUES
+        - break: aborts the loop and exits
+        - continue: restarts the loop
+    - <a href="https://codepen.io/NuSigma/pen/gOdrJxd">Assignment</a>: Create a codepen that uses conditional and loop statements.
+
+        
