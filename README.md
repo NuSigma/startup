@@ -276,4 +276,163 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         - continue: restarts the loop
     - <a href="https://codepen.io/NuSigma/pen/gOdrJxd">Assignment</a>: Create a codepen that uses conditional and loop statements.
 
+### Feb 22-24, 2023 - Functions, Arrow Functions, Arrays, and Objects and Classes.
+
+- <a href="https://codepen.io/NuSigma/pen/BaOzEwR">Assignment</a>: - A Codepen that: uses all function concepts, uses arrays, uses the arrow function, and uses objects and classes
+
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions">Functions</a>: functions can be passed as paramaters, returned as a result, and reference from an object or array like any other variable.
+    - Syntax:
+        ``` JavaScript
+        function functionName(params = defaultValue) {
+            // function code
+            return returnValueorStatement; //optional
+        }
+        ```
+    - If a parameter is not provided to a function then the value of the parameter is set as <code>undefined</code> when the function executes.
+    - Anonomous Functions: An unnamed function assigned to a variable specifically so it can be passed as a parameter to some other function or stored as an object property.
+        - Example:
+            ```JavaScript
+            // Function that takes a function as a parameter
+            function doMath(operation, a, b) {
+            return operation(a, b);
+            }
+
+            // Anonymous function assigned to a variable
+            const add = function (a, b) {
+            return a + b;
+            };
+
+            console.log(doMath(add, 5, 3));
+            // OUTPUT: 8
+
+            // Anonymous function assigned to a parameter
+            console.log(
+            doMath(
+                function (a, b) {
+                return a - b;
+                },
+                5,
+                3
+            )
+            );
+            // OUTPUT: 2
+            ```
+    - Inner functions: Functions can be declared inside other functions, allowing modularization without exposing private details
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Arrays</a>: represent a sequence of other objects and primitives.
+    - Array Functions:
+    - push:	Add an item to the end of the array	
+    - pop:	Remove an item from the end of the array	
+    - slice:	Return a sub-array	
+    - sort:	Run a function sort an array in place	
+    - values:	Creates an iterator for use with a for of loop	 
+    - find:	Find the first item satisfied by a test function	
+    - forEach:	Run a function on each array item
+    - reduce:	Run a function to reduce each array item to a single item	
+    - map:	Run a function to map an array to a new array	
+    - filter:	Run a function to remove items	
+    - every:	Run a function to test if all items match	
+    - some:	Run a function to test if any items match	
+- The Arrow Function: replaces the need for the <code>function</code> keyword in anonomous functions with <code>=></code> 
+    - Example: these functions are equivalent.
+        ```JavaScript
+        // standard function syntax
+        a.sort(function (v1, v2) {
+        return v1 - v2;
+        });
+
+        // arrow function syntax
+        a.sort((v1, v2) => v1 - v2);
+        ```
+    - Return values:
+        ```JavaScript
+        () => 3;
+        // RETURNS: 3
+
+        () => {
+        3;
+        };
+        // RETURNS: undefined
+
+        () => {
+        return 3;
+        };
+        // RETURNS: 3
+        ```
+    - <code>this</code> pointer: 
+        - wat. Refer to future discussion on scope.
+- Object and <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript">Classes</a>:
+    - The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">JavaScript Object</a> object: A JS Object represents a collection of name value pairs (called properties). The property name must be a String or Symbol, but the value can be any type. They are created with the <code>new</code> operator.
+         * Note the different uses of the term object. Object can refer to the standard JavaScript objects (e.g. Promise, Map, Object, Function, Date, ...), or it can refer specifically to the JavaScript Object object (i.e. new Object()), or it can refer to any JavaScript object you create (e.g. {a:'a', b:2} ). This overloaded usage can be a bit confusing.
+    - Object-literals: You can declare a veriable of object type with object-literal syntax as th example below:
+        ```
+        const obj = {
+        a: 3,
+        b: 'fish',
+        };
+        ```
+    - Object functions: A JS Object has several static functions associated with it. The most common are: entries, keys, and values. Which output a JS Objects keys and values, keys, and values, respectively.
+    - Constructor: Any function which returns an object and can be invoked with the new operator.
+        - Example:
+            ```JavaScript
+            function Person(name) { //defining the object "Person"
+            return {
+                name: name,  //sets the key 'name' to = the param input 'name'
+                log: function () {
+                console.log('My name is ' + this.name); //this.name something about scope I guess... 
+                },
+            };
+            }
+
+            const p = new Person('Eich'); //creating an "Person" instance, held within variable "p", parametarized with 'Eich'
+            p.log();
+            // OUTPUT: My name is Eich
+            ```
+    - This pointer: In this context refers to a pointer to the object. Refer to future discussion on scope.
+    - Classes: Can use to define objects, using a class instead of an object clarifies the intent to create a reusable component.
+        - If we created the "Person" object from above as a class:
+            ```JavaScript
+            class Person {
+            constructor(name) { 
+                this.name = name;
+            }
+
+            log() {
+                console.log('My name is ' + this.name);
+            }
+            }
+
+            const p = new Person('Eich');
+            p.log();
+            // OUTPUT: My name is Eich
+            ```
+        - properties and functions can be made private via prefixing with a <code>#</code>
+    - Inheritance: Extends classes using the <code>extends</code> keyword. <code>super</code> function used to pass child variables to parent function, and can be used to access parents function explicitly when a child function has overridden it. 
+        - example extending previous code:
+            ```JavaScript
+            class Person {
+            constructor(name) {
+                this.name = name;
+            }
+
+            print() {
+                return 'My name is ' + this.name;
+            }
+            }
+
+            class Employee extends Person {
+            constructor(name, position) {
+                super(name);
+                this.position = position;
+            }
+
+            print() {
+                return super.print() + '. I am a ' + this.position;
+            }
+            }
+
+            const e = new Employee('Eich', 'programmer');
+            console.log(e.print());
+            // OUTPUT: My name is Eich. I am a programmer
+            ```
+
         
