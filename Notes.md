@@ -1,0 +1,1 @@
+Placeholder Icon: "nu-wikimedia-commons.png" downloaded from https://imgbin.com/png/9fxYRsqu/nu-greek-alphabet-cc0-lisenssi-wikimedia-commons-png
