@@ -81,7 +81,85 @@
                   </li>
                 </ul>
                 <hr>
-              </div>
+            </div>
+            <div class="recipes">
+                <!-- Groups and Sort Bar -->
+                <ul class="nav flex-row">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Groups</a>
+                        <ul class="dropdown-menu">
+                            <!-- Will eventually sift out al lbut the chosen group -->
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                    <div class="d-flex flex-row justify-end">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sort</a>
+                            <ul class="dropdown-menu">
+                                <!-- sort alphabetically, by prep time, by number of missnig ingredients -->
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-secondary" type="button">+ Add New Recipe</button>
+                        </div>
+                    </div>
+                </ul>
+                
+                <!-- PLACEHOLDER! Recipe List -->
+                <!-- Eventually want them better styled individual bubbles that open popups for editing the meal -->
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th scope="col">Recipe Name</th>
+                      <th scope="col">Prep Time</th>
+                      <th scope="col">Missing Ingredients</th>
+                      <th scope="col">Meal Cost?</th>
+                      <th scope="col">Plan</th>
+                      <th scope="col">Edit</th>
+                      
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">[Meal Number 1]</th>
+                        <td>[Time HH:MM or Min?]</td>
+                        <td>[# of Missing]</td>
+                        <!-- Price Conversion? -->
+                        <td>[$]</td>
+                        <td>select a date to prepare this meal placeholder</td>
+                        <td>edit button placeholder</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">[Meal Number 2]</th>
+                        <td>[Time HH:MM or Min?]</td>
+                        <td>[# of Missing]</td>
+                        <!-- Price Conversion? -->
+                        <td>[$]</td>
+                        <td>select a date to prepare this meal placeholder</td>
+                        <td>edit button placeholder</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">[Meal Number 3]</th>
+                        <td>[Time HH:MM or Min?]</td>
+                        <td>[# of Missing]</td>
+                        <!-- Price Conversion? -->
+                        <td>[$]</td>
+                        <td>select a date to prepare this meal placeholder</td>
+                        <td>edit button placeholder</td>
+                    </tr>
+                    </tbody>
+                  </table>
+            </div>
+
 
         </main>
         <!-- Bootstrap Simple Footer -->
