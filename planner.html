@@ -88,14 +88,22 @@
 
              <!-- Today's Planned Meal -->
              <!-- Bootstrap Nav -->
-            <div class="bd-example">
-                <nav>
-                  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist"> <!--Non-Functional Buttons Need JavaScript-->
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-today" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Today</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-week" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">Week</button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-month" type="button" role="tab" aria-controls="nav-contact" aria-selected="false" tabindex="-1">Month</button>
-                  </div>
-                </nav>
+            <div class="planner">
+                <!-- Today Week Month Tabs -->
+                <div class="d-grid flex-row">
+                    <!-- PLACEHOLDER!! Change Meal Button -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-secondary" type="button">+ Change Meal</button>
+                    </div>
+                    <nav>
+                        <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist"> <!--Non-Functional Buttons Need JavaScript-->
+                            <button class="nav-link active" id="nav-today-tab" data-bs-toggle="tab" data-bs-target="#nav-today" type="button" role="tab" aria-controls="nav-today" aria-selected="true">Today</button>
+                            <button class="nav-link" id="nav-week-tab" data-bs-toggle="tab" data-bs-target="#nav-week" type="button" role="tab" aria-controls="nav-week" aria-selected="false" tabindex="-1">Week</button>
+                            <button class="nav-link" id="nav-month-tab" data-bs-toggle="tab" data-bs-target="#nav-month" type="button" role="tab" aria-controls="nav-month" aria-selected="false" tabindex="-1">Month</button>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Page content -->
                 <div class="tab-content" id="nav-tabContent">
                   <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <!-- Date and Meal Title Placeholder-->
