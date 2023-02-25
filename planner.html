@@ -39,11 +39,14 @@
             <!-- Header Navigation Buttons-->
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Login</a></li>
+                    <a class="nav-link active" href="index.html">Login</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#NothinRN">Share</a></li>
+                    <a class="nav-link" href="#NothinRN">Share</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://numealplanz.click/">About</a></li>
+                    <a class="nav-link" href="https://numealplanz.click/">About</a>
+                </li>
             </ul>
             <!-- Search Bar -->
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -64,7 +67,7 @@
                   <li>
                     <a href="recipes.html" class="nav-link link-dark">
                       <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                      Recepies
+                      Recipes
                     </a>
                   </li>
                   <li>
@@ -81,7 +84,89 @@
                   </li>
                 </ul>
                 <hr>
-              </div>
+            </div>
+
+             <!-- Today's Planned Meal -->
+             <!-- Bootstrap Nav -->
+            <div class="bd-example">
+                <nav>
+                  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist"> <!--Non-Functional Buttons Need JavaScript-->
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-today" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Today</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-week" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">Week</button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-month" type="button" role="tab" aria-controls="nav-contact" aria-selected="false" tabindex="-1">Month</button>
+                  </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- Date and Meal Title Placeholder-->
+                    <div class="border border-info rounded-top p-3 mb-2 bg-primary text-white">
+                        <h1>[Weekday] - [Month] [Day], [Year]</h1>
+                        <h2>[Meal Name] - [Prep Time]</h2>
+                    </div>
+                    <div>
+                        <h3>Ingredients</h3>
+                        <!--Placeholder Table for Ingredients list-->
+                        <!-- Eventually want live unit conversion -->
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                              <th scope="col">Amount</th>
+                              <!-- Modify Units to be a dropdown that modifies all units below? -->
+                              <th scope="col">Units</th>
+                              <th scope="col">Ingredient</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">[#1]</th>
+                                <!-- Have each individual ingredient dropdown to convert units -->
+                                <td>[Cups?]</td>
+                                <td>[Item]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">[#2]</th>
+                                <!-- Have each individual ingredient dropdown to convert units -->
+                                <td>[Grams?]</td>
+                                <td>[Item]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">[#3]</th>
+                                <!-- Have each individual ingredient dropdown to convert units -->
+                                <td>[Pieces?]</td>
+                                <td>[Item]</td>
+                            </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                    <hr>
+                    <div>
+                        <h3>Preparation Instructions</h3>
+                        <!--Ingredients Placeholders: Once implemented will be pulled from individual step creation from recipes tab-->
+                        <ol>
+                            <li> First Step Placeholder</li>
+                            <li> Second Step Placeholder</li>
+                            <li> Third Step Placeholder</li>
+                        </ol>
+                    </div>
+                    <!-- Completion Button once implemented should detract the recipes used ingredients from the Pantry -->
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="button">Meal Completed!</button>
+                    </div>
+
+                    <!-- UNIMPLEMENTED need JavaScript functionality -->
+                    </div>
+                    <!-- Unimplemented Weekly calander: shows meal names for the week, eventually Breakfast, Lunch, and Dinners -->
+                    <!-- Selecting a day will open a popup to plan that days meal(s) -->
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                    </div>
+                    <!-- Color coded? Shows what days have planned meals and which do not -->
+                    <!-- Selecting a day will open a popup to plan that days meal(s) -->
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                    </div>
+                </div>
+            </div>
 
         </main>
         <!-- Bootstrap Simple Footer -->
