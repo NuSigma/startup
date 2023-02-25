@@ -1,0 +1,7 @@
+.modal-dialog {
+    position: relative;
+    width: auto;
+    vertical-align: middle;
+    margin: var(--bs-modal-margin);
+    pointer-events: none;
+}
