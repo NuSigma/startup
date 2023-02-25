@@ -83,6 +83,71 @@
                 <hr>
               </div>
 
+              <div class="pantry">
+                    <!--Sort Bar -->
+                    <ul class="nav flex-row">
+                        <div class="d-flex flex-row justify-content-end">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sort</a>
+                                <ul class="dropdown-menu">
+                                    <!-- sort alphabetically, by prep time, by number of missnig ingredients -->
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-secondary" type="button">+ Add New </button>
+                            </div>
+                        </div>
+                    </ul>
+                    <!-- Ingredients Table -->
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <!-- Modify Units to be a dropdown that modifies all units below? -->
+                                <th scope="col">Amount</th>
+                                <th scope="col">Units</th>
+                                <th scope="col">Cost/Unit</th>
+                                <th scope="col">Modify</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">[Item 1]</th>
+                                <td>[#]</td>
+                                <!-- Have each individual ingredient dropdown to convert units -->
+                                <td>[Cups?]</td>
+                                <!-- Convert to other currency? -->
+                                <td>[$]</td>
+                                <td>[modify ingredient button]</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">[Item 2]</th>
+                                <td>[#]</td>
+                                <!-- Have each individual ingredient dropdown to convert units -->
+                                <td>[Grams?]</td>
+                                <td>[$]</td>
+                                <td>[modify ingredient button]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">[Item 3]</th>
+                                <td>[#]</td>
+                                <!-- Have each individual ingredient dropdown to convert units -->
+                                <td>[Pieces?]</td>
+                                <td>[$]</td>
+                                <td>[modify ingredient button]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
         </main>
         <!-- Bootstrap Simple Footer -->
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
