@@ -461,7 +461,7 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - Fallbacks: Fallback handling pattern is when you put the normal feature path in a try block then provide a falback implementation in the catch block. Common implementation of exception handling. Provides "content" returned from your program even if the desired feature is temporarily unavailable.
 
 ### Feb 27-Mar 3, 2023 - JS; Scope, Modules, and Document Object Model
-- <a href="">Assignment</a>: Create your own code pen that manipulates the DOM.
+- <a href="https://codepen.io/NuSigma/pen/oNPZWJX">Assignment</a>: Create your own code pen that manipulates the DOM.
 - <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">Scope</a>:
     - JavaScript has four different types of scope:
         1. Gobal - Visible to all code
