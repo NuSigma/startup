@@ -489,11 +489,11 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         - The below is a function which creates then inserts a new <code>div</code> element into the desired parent(in this case '#courses') with desired text content (in this case 'new course')
             ```JavaScript
             function insertChild(parentSelector, text) {
-            const newChild = document.createElement('div');
-            newChild.textContent = text;
+                const newChild = document.createElement('div');
+                newChild.textContent = text;
 
-            const parentElement = document.querySelector(parentSelector);
-            parentElement.appendChild(newChild);
+                const parentElement = document.querySelector(parentSelector);
+                parentElement.appendChild(newChild);
             }
 
             insertChild('#courses', 'new course');
