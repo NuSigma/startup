@@ -320,21 +320,21 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - Inner functions: Functions can be declared inside other functions, allowing modularization without exposing private details
 - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Arrays</a>: represent a sequence of other objects and primitives.
     - Array Functions:
-    - push:	Add an item to the end of the array	
-    - pop:	Remove an item from the end of the array	
-    - slice:	Return a sub-array	
-    - sort:	Run a function sort an array in place	
-    - values:	Creates an iterator for use with a for of loop	 
-    - find:	Find the first item satisfied by a test function	
-    - forEach:	Run a function on each array item
-    - reduce:	Run a function to reduce each array item to a single item	
-    - map:	Run a function to map an array to a new array	
-    - filter:	Run a function to remove items	
-    - every:	Run a function to test if all items match	
-    - some:	Run a function to test if any items match	
+        - push:	Add an item to the end of the array	
+        - pop:	Remove an item from the end of the array	
+        - slice:	Return a sub-array	
+        - sort:	Run a function sort an array in place	
+        - values:	Creates an iterator for use with a for of loop	 
+        - find:	Find the first item satisfied by a test function	
+        - forEach:	Run a function on each array item
+        - reduce:	Run a function to reduce each array item to a single item	
+        - map:	Run a function to map an array to a new array	
+        - filter:	Run a function to remove items	
+        - every:	Run a function to test if all items match	
+        - some:	Run a function to test if any items match	
 - The Arrow Function: replaces the need for the <code>function</code> keyword in anonomous functions with <code>=></code> 
     - Example: these functions are equivalent.
-        ```JavaScript
+        ```JavaScriptz
         // standard function syntax
         a.sort(function (v1, v2) {
         return v1 - v2;
@@ -364,7 +364,7 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">JavaScript Object</a> object: A JS Object represents a collection of name value pairs (called properties). The property name must be a String or Symbol, but the value can be any type. They are created with the <code>new</code> operator.
          * Note the different uses of the term object. Object can refer to the standard JavaScript objects (e.g. Promise, Map, Object, Function, Date, ...), or it can refer specifically to the JavaScript Object object (i.e. new Object()), or it can refer to any JavaScript object you create (e.g. {a:'a', b:2} ). This overloaded usage can be a bit confusing.
     - Object-literals: You can declare a veriable of object type with object-literal syntax as th example below:
-        ```
+        ```JavaScript
         const obj = {
         a: 3,
         b: 'fish',
@@ -460,7 +460,7 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - NOTE: these should NOT be used for normal flows of a program!
     - Fallbacks: Fallback handling pattern is when you put the normal feature path in a try block then provide a falback implementation in the catch block. Common implementation of exception handling. Provides "content" returned from your program even if the desired feature is temporarily unavailable.
 
-### Feb 27-Mar 3, 2023 - JS; Scope, Modules, and Document Object Model
+### Feb 27-Mar 1, 2023 - JavaScript: Scope, Modules, and Document Object Model
 - <a href="https://codepen.io/NuSigma/pen/oNPZWJX">Assignment</a>: Create your own code pen that manipulates the DOM.
 - <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">Scope</a>:
     - JavaScript has four different types of scope:
@@ -505,3 +505,119 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">Event Listener</a>: 
         - The ability to attach a function that gets called when an event occurs
         - <a href="https://developer.mozilla.org/en-US/docs/Web/Events">List of all events</a>
+
+### Mar 1-3, 2023 - JavaScript: Promises, and Async/Await
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a> - for executing code asynchronously (meaning the promise constructor may return before the promise executor function runs) <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Usage</a>
+    - <a href="https://codepen.io/NuSigma/pen/yLxbQGr">Assignment</a>: create your own example of using promises.
+    - Promise Object creation:
+        - by calling the promise object constructor and passing it an executor function that runs the asynch operation:
+            ```JavaScript
+            new Promise((resolve, reject) => {
+                // code executing in the promise
+            });
+
+            //code executing after the promise
+            ```
+    - possible promise Object states:
+        1. pending - currently runnin asynchronously
+        2. fulfilled - completed successfully
+        3. rejected - failed to complete
+    - Resolving and Rejecting: calling solve sets the promise to the fulfulled state and calling reject sets the promise to the rejected state
+    - Then, catch, finally: promise has three functions
+        - then: called if the promise is fulfilled
+        - catch: called if the promise is rejected
+        - finally: always called after all the processing is completed
+        - Simple example of a coin toss:
+            ```JavaScript
+            const coinToss = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() > 0.1) {
+                    resolve(Math.random() > 0.5 ? 'heads' : 'tails');
+                    } else {
+                    reject('fell off table');
+                    }
+                }, 10000);
+            });
+            coinToss
+                .then((result) => console.log(`Coin toss result: ${result}`))
+                .catch((err) => console.log(`Error: ${err}`))
+                .finally(() => console.log('Toss completed'));
+
+            // OUTPUT:
+            //    Coin toss result: tails
+            //    Toss completed
+            ```
+    - The Observer Pattern: another way of asynch processing
+        - Promises immedietly begin to execute when the Promise is created, while Observers form a pipeline that you then pass an execution object into. Observers are therefore reusable
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">Async</a>/Await: A more consise representation than promises
+    - <a href="https://codepen.io/NuSigma/pen/dyqWwoR">Assignment</a>: copy codepen from promises and transform it to use async/await
+    - <code>await</code> keyword wraps the execution of a promise an removed the need to chain functions, it will block until the promise state moves to fulfileed or rejected.
+    - Coin toss example from promises except with async try/catch:
+        ```JavaScript
+        try {
+            const result = await coinToss();
+            console.log(`Toss result ${result}`);
+        } catch (err) {
+            console.error(`Error: ${err}`);
+        } finally {
+            console.log(`Toss completed`);
+        }
+        ```
+    - Async: <code>async</code> keyword makes the function return a promise that will resolve with the value the function returns. Turns any function into an asynchronous function, so can make asnch requests.
+        - <code>await</code> restriction: cannot call it unless it's at the tplevel of the JavaScipt or is in a function that is defined with the <code>async</code> keyword.
+        - Basic function:
+            ```JavaScript
+            function cow() {
+                return 'moo';
+            }
+            console.log(cow());
+            // OUTPUT: moo
+            ```
+        - Function with async only:
+            ```JavaScript
+            async function cow() {
+                return 'moo';
+            }
+            console.log(cow());
+            // OUTPUT: Promise {<fulfilled>: 'moo'}
+            ```
+        - Function with async and explicitly created promise:
+            ```JavaScript
+            async function cow() {
+                return new Promise((resolve) => {
+                    resolve('moo');
+                });
+            }           
+            console.log(cow());
+            // OUTPUT: Promise {<pending>}  
+            ```
+    - Await: Declares that a function returns a promise. Wraps an async function and blocks its execution until the promis is resolved then returns result.
+        - call to cow async explicit promise function from above:
+            ```JavaScript
+            console.log(cow());
+            // OUTPUT: Promise {<pending>}
+
+            console.log(await cow());
+            // OUTPUT: moo
+            ```
+    - Real World Example: consider the case of needing to resolve 2 promises: A network call and converting the result to JSON:
+        - promise implementation:
+            ```JavaScript
+            const httpPromise = fetch('https://simon.cs260.click/api/user/me');
+            const jsonPromise = httpPromise.then((r) => r.json());
+            jsonPromise.then((j) => console.log(j));
+            console.log('done');
+
+            // OUTPUT: done
+            // OUTPUT: {email: 'bud@mail.com', authenticated: true}
+            ```
+        - async/await implementation:
+            ```JavaScript
+            const httpResponse = await fetch('https://simon.cs260.click/api/user/me');
+            const jsonResponse = await httpResponse.json();
+            console.log(jsonResponse));
+            console.log('done');
+
+            // OUTPUT: {email: 'bud@mail.com', authenticated: true}
+            // OUTPUT: done
+            ```
