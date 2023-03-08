@@ -621,3 +621,14 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
             // OUTPUT: {email: 'bud@mail.com', authenticated: true}
             // OUTPUT: done
             ```
+
+### Mar 3-6, 2023 - Debugging, SimonJS, and Midterm Review
+- <a href="">Simon JS</a> Completed!
+
+- Debugging: <a href="">Console</a>
+
+
+### Mar 8-10, 2023 - URL, Ports, HTTP 
+
+
+### Mar 10-13, 2023 - 
