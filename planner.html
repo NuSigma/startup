@@ -108,9 +108,20 @@
                   <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <!-- Date and Meal Title Placeholder-->
                     <div class="border border-info rounded-top p-3 mb-2 bg-primary text-white">
-                        <h1>[Weekday] - [Month] [Day], [Year]</h1>
+                        <h1 id="date">[Weekday] - [Month] [Day], [Year]</h1>
                         <h2>[Meal Name] - [Prep Time]</h2>
                     </div>
+                    <script>
+                        // JavaScript for date Header
+                        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        const t =  new Date();
+                        let wkd = dayNames[t.getDay()];
+                        let m = monthNames[t.getMonth()];
+                        let d = t.getDate();
+                        let y = t.getFullYear();
+                        document.getElementById("date").innerHTML = wkd + " - " + m + " " + d + ", " + y;
+                    </script>
                     <div>
                         <h3>Ingredients</h3>
                         <!--Placeholder Table for Ingredients list-->
