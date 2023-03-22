@@ -1,13 +1,15 @@
-// Recipe Modal Reset on Close
-$('#AddNewRecipeScrollable').on('hidden.bs.modal', function (e) {
-    $(this)
-      .find("input,textarea,select")
-         .val('')
-         .end()
-      .find("input[type=checkbox], input[type=radio]")
-         .prop("checked", "")
-         .end();
-  })
+// STILL FIGURING OUT: JQuery Recipe Modal Reset on Close
+// $('#AddNewRecipeScrollable').on('hidden.bs.modal', function (e) {
+//     $(this)
+//       .find("input,textarea,select")
+//          .val('')
+//          .end()
+//       .find("input[type=checkbox], input[type=radio]")
+//          .prop("checked", "")
+//          .end();
+//   })
+
+
 // Recipe Steps Functions
 function insertPrepStep() 
 {
