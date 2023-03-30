@@ -735,23 +735,116 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         - Points to Consider when designing a service's endpoints:
             - Grammatical - everything is a resource in HTTP
             - Readable - resources should be clearly readable in the URL path
-            - Discoverable - 
-            - Compatible - 
-            - Simple - 
-            - Documented -
+            - Discoverable - Your resources are all able to be found easily
+            - Compatible - endpoints should enable adding new functionality without breaking existing clients. Usually by allowing older clients to ignore new stuff they don't understand.
+            - Simple - Keep endpoints focused on the primary resources. Endpoints should only do one thing, there should only be oe way to act on a resource.
+            - Documented - Use the <a href="https://spec.openapis.org/oas/latest.html">Open API Specification</a> as an example of how to create, use, and maintain documentation of your service endpoints.
     - Exposing Endpoints, three most common models:
-        - RPC
-        - REST
+        - RPC - Rempte Procedure Calls
+            - Expose service enpoints as simple function calls, over HTTP usually just levarages the POST verb.
+            - One advantage is that it maps directly to function calls in the server. Can also be a disadvantage as it directly exposes the inner workings of the service.
+        - REST - Representational State Transfer
+            - tries to take advantage of the foundational principles of HTTP. REST HTTP verbs always act on a resource. 
         - GraphQL
+            - Focuses on the manipulation of data instead of a function call(like RPC) or resource(like REST).GraphQL uses a query tghat specifies the desired data and how it should be joined and filtered.
+            - Helps to remove a lot of logic for parsing enpoints and mapping request to specific resources. therfore only one endpoint: query enpoint.
+            - Downside: client can now consume significant resources without clear oundary on what, how much, or how complex the data aggregation is.
 
 ### Mar 13-15, 2023 - Node.js
 - <a href="">Assignment</a>: Install Node.js in develment environment. Then create, and run, a simple webservice. Then copy the code to CodePen(though it won't work in the codepen)
 - Node.JS - The first sucessful application for deploying JavaScript outside a browser. Managed by <a href="https://openjsf.org/">OpenJS foundation</a>
+    - windows installation from <a href="https://github.com/coreybutler/nvm-windows#installation--upgrades">windows-nvm</a>
+        * WINDOWS INSTALL ISSUE: <a href="https://stackoverflow.com/questions/66047161/getting-exit-status-1-when-i-run-the-command-nvm-use-12-18-0">Stack Overflow</a> - "NVM for windows is an attempt to port from the linux and currently does not support spaces in the path." 
+        * Also NVM for Windows will be Depriciated after "Runtime" is released. <a href="https://github.com/coreybutler/nvm-windows/wiki/Runtime">The Announcement</a> - Jan 2023
+    - Node Package Manager (installed automatically when node.js is installed)
+        1. create a directory to contain your JS and run `npm init` or `npm init -y` to accept all defaults
+        2. put `node-modules` in `.gitignore` 
+        3. Install desired package loacally using NPM (search via <a href="https://www.npmjs.com/">NPM website</a>) using `npm install <package name>` in the code directory
+        4. Include a `require('<package name here>')` statement in your main code that references the package name.
+        5. Run code with `node main.js` (assuming main file is called `main.js`)
+        - NOTE: when installing package dependencies, `node-modules` will be created. Do NOT check this directory into your source control system due to it's size and can be rebuild using `package.json` and `package-lock.json`. 
+            * PUT `node-modules` INTO `.gitignore` FILE!
+    - EXAMPLE: Creating a web service
+        - initialization:
+            1. `mkdir webservicetest`
+            2. `cd webservicetest`
+            3. `npm init -y`
+            4. `npm install http`
+        - main.js code:
+           ```javascript
+            const http = require('http');
+            const server = http.createServer(function (req, res) {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write('<h1>Hello Node.js!</h1>');
+            res.end();
+            });
 
+            server.listen(8080, () => {
+            console.log(`Web service listening on port 8080`);
+            });
+           ``` 
+        - execution:
+            ```
+            ➜ node main.js
+            Web service listening on port 8080
+            ```
+        - Open browser to `localhost:8080` to see output
+    - Deno & Bun
+        - Deno: successor to Node.js. More complient with ECMAScript + performance enhancements.
+        - Bun: an interesting competitor server JavaSDcript app
 
-### Mar 15-20, 2023 - Express, Debugging Node.JS, Service Daemons - PM2\
+### Mar 15-20, 2023 - Express, Debugging Node.JS, Service Daemons - PM2
+- Express
+- Debug Node.js
+- PM2(Process Manager 2)
+
+### Mar 20-22, 2023 - UI testing, Endpoint Testing, Simon Service
+- UI Testing
+- Endpoint Testing
+- Simon Service
+
+### Mar 22-24, 2023 - Storage Services, Data Services, Simon DB
+- Storage Services
+- Data Services
+- Simon DB
+
+### Mar 24-27, 2023 - Authorization Services, Acc. Creation & Login, Simon Login
+- Authorization Services
+- Account Creation and Login
+- Simon Login
+
+### Mar 27-29, 2023 - WebSocket, Debug WebSocket, WebSocket Chat, Simon WebSocket
+- WebSocket
+- Debug
+- WebSocket chat
+- Simon WebSocket
+
+### Mar 29-31, 2023 - Web Frameworks, React, React Components
 - 
 
 
-### Mar 20-22, 2023 - UI testing, Endpoint Testing, Simon Service
+### Mar 31-Apr 3, 2023 - React Tic-tac-toe tutorial, Reactivity
+- 
 
+
+### Apr 3-5, 2023 - Hooks, Toolchains, React CLI, Start up deliverable - Service
+- 
+
+
+### Apr 5-7, 2023 - React Router, Simon React
+- 
+
+
+### Apr 7-10, 2023 - Security, OWASP top 10, Practice
+- 
+
+
+### Apr 10-12, 2023 - Gruyere?
+- 
+
+
+### Apr 12-14, 2023 - TypeScript, Performance monitoring, (opt: Demo Day submission)
+- 
+
+
+### Apr 14-17, 2023 - Search Engine Optimization, Device APIs
