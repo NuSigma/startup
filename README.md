@@ -794,9 +794,81 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         - Bun: an interesting competitor server JavaSDcript app
 
 ### Mar 15-20, 2023 - Express, Debugging Node.JS, Service Daemons - PM2
-- Express
-- Debug Node.js
+- Assignment <a href="https://sequencediagram.org/index.html#initialData=C4S2BsFMAIGVIE4DcQGMYCVIEcCukBnYAgKBIENVgB7BaAYVwXDMeYFoA+eZNSALmgBtAAoBVACoBdaAHois2pAC2JAHbVgMBCADmAC2DRqAMziIU6fuQAONgHQ3cwABQByecABUs-kSUAcuTKkG4ANAA6atAuCDhh0HEEAJTQALyciYT2BJBqACYuUQDe0Lg2+eRagnHYjuQIwQQ5NHFBIdAAvsnJANwkbOAAPEPs7DyWAtDFAETllVoz-DNKyjOdJEA">Sequence Diagram</a> - create a web service with Express called testExpress
+- <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction">Express</a>
+    - Provides support for:
+        1. Routing requests for service endpoints
+        2. Manipulating HTTP requests with JSON body content
+        3. Generating HTTP responses
+        4. Using middleware to add functionality
+    - Create an Express application by:
+        1. `npm install express` (in your code directory)
+        2. listen for HTTP request on a desired port:
+            ```javascript
+            const express = require('express');
+            const app = express();
+
+            app.listen(8080);
+            ```
+    - Defining routes
+
+    - <a href="https://expressjs.com/en/resources/middleware.html">Express Middleware</a>
+        - <a href="https://www.patterns.dev/posts/mediator-pattern">Mediator/Middleware</a> design pattern:
+            - mediator: loads the middleware components and determines their order of execution (Express in this case)
+            - middleware: componentized pieces of functionality
+        - Creating your own middleware
+        - Builtin middleware
+        - Third party middleware
+        - Error handling middleware
+- Debugging Node.js (<a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">in VS Code</a>)
+    - Start Debugging by pressing F5, use node.js debugger
+    - <a href="https://www.npmjs.com/package/nodemon">Nodemon</a> - watches for files in the project directory to change during debugging and automatically restarts node
+        - to install globally: 
+            ```
+            npm install -g nodemon
+            ```
+        - Then create a VS Code Launch Config with CTRL-SHIFT-P -> Debug:add configuration -> type Node.js -> select Node.js: Nodemon setup -> change program from app.js to main.js(or whatever main JS file for your program is) -> save -> now when open debugging with F5 it will run Nodemon instead of Node.js
 - PM2(Process Manager 2)
+    - In order to keep programs running after a shutdown you need to register it as a `daemon`. PM2 manages these running in the background
+    - (already installed in the webserver) to see it running ssh into webserver and run: `pm2 ls`
+    - Register a new web service:
+        1. add the rule to the Caddyfile and tell it how to direct requests
+            - Example: create a new section with the following syntax
+            ```
+            (example: tacos.cs260.click)
+            <SubDomain>.<DomainName>.<Extension> {
+                //settings Examples:
+                reverse_proxy _ localhost:5000 <-- Pass requests to webservice listeing to localhost on port 5000
+                header Cache-Control none      <-- disable caching
+                header -server                 <-- hides that telling others caddy is the server
+                header Access-Control-Allow-Origin * <-- allows endpoint requests (disable CORS)
+            }
+            ```
+        2. create a directory and add the files for the service
+            - Example: 
+                ```
+                cp -r ~/services/startup ~/services/tacos <-- copy code from startup to 'tacos'
+                ```
+                - This code causes the web service to listen on a port that is provided by the command line
+                    ```javascript
+                    const port = process.argv.length > 2 ? process.argv[2] : 3000;
+                    app.listen(port, () => {
+                    console.log(`Listening on port ${port}`);
+                    });
+                    ```
+                - the `public` directory has HTML/CSS/JavaScript files that you web service will respond with when reuested. This is enabled in index.js with:
+                    ```JavaScript
+                    app.use(express.static('public'));
+                    ```
+                - Then you can start it up manually with: `node index.js <desired port>`
+                - Then can be accessed through browser (in this case https://tacos.cs260.click) or using `curl https://tacos.cs260.click`
+        3. configure PM2 to host it
+            - Example:
+                ```
+                cd ~<directory from step2>
+                pm2 start <indexfilefromstep2>.js -n <servicename> -- <desired port from step 1>
+                pm2 save
+                ```
 
 ### Mar 20-22, 2023 - UI testing, Endpoint Testing, Simon Service
 - UI Testing
