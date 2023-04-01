@@ -872,8 +872,17 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 
 ### Mar 20-22, 2023 - UI testing, Endpoint Testing, Simon Service
 - UI Testing
+    - The problem: testing your application on all the different browsers on all the different devices of all different sizes and... on and on.
+    - Playwright (<a href="https://playwright.dev/docs/getting-started-VSCode">in VS Code</a>)
+    - <a href="https://www.browserstack.com/">Browser Stack</a>
 - Endpoint Testing
+    - <a href="https://jestjs.io/">Jest</a>
 - Simon Service
+    * Setup to deploy on port 3000, STARTUP  should be on *PORT 4000*
+    - Deploy with deployService.sh (for mine):
+        ```
+        ./deployService.sh -k ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem -h numealplanz.click -s simon
+        ```
 
 ### Mar 22-24, 2023 - Storage Services, Data Services, Simon DB
 - Storage Services
@@ -892,7 +901,9 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 - Simon WebSocket
 
 ### Mar 29-31, 2023 - Web Frameworks, React, React Components
-- 
+- Web Frameworks
+- React
+- React Components
 
 
 ### Mar 31-Apr 3, 2023 - React Tic-tac-toe tutorial, Reactivity
