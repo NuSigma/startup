@@ -886,28 +886,79 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 
 ### Mar 22-24, 2023 - Storage Services, Data Services, Simon DB
 - Storage Services
+    - Usually a BAD IDEA to stor files on your server because:
+        1. Limited drive space. 
+        2. You should keep the server easilly replacable. It is not intended for permenant storage.
+        3. Need backup copies of app and user files.
+    - <a href="https://aws.amazon.com/s3/">AWS S3</a>
+
 - Data Services
+    - Assignment: Set up MongoDB Atlas database service. Then test it's properly set up.
+    - Popular Data Services:
+        - MySQL - Relational queries
+        - Redis - Memory cached objects
+        - ElasticSearch - Ranked free text
+        - MongoDB - JSON objects
+        - DynamoDB - Key value pairs
+        - Neo4J - Graph based data
+        - InfluxDB - Time series data
+    - We're using MongoDB: <a href="https://www.mongodb.com/developer/languages/javascript/node-crud-tutorial/">Tutorial</a>, and <a href="https://www.mongodb.com/docs/">Documentation</a>
+        1. Install MongoDB in your application with npm:
+            ```
+            npm install mongodb
+            ```
+        2. Use the `MongoClient` object to make a client connection to the database server
+        3. With the client connection you can get a database object from the collection object.
+
+    - 
+
 - Simon DB
 
 ### Mar 24-27, 2023 - Authorization Services, Acc. Creation & Login, Simon Login
 - Authorization Services
+
 - Account Creation and Login
+
 - Simon Login
+
 
 ### Mar 27-29, 2023 - WebSocket, Debug WebSocket, WebSocket Chat, Simon WebSocket
 - WebSocket
+
 - Debug
+
 - WebSocket chat
+
 - Simon WebSocket
 
+
 ### Mar 29-31, 2023 - Web Frameworks, React, React Components
-- Web Frameworks
-- React
-- React Components
+- Web Frameworks - <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction">Intro</a>
+    - Make writing web applications easier by providing tools for common application tasks.
+
+- React - <a href="https://react.dev/learn#components">Quick Start</a>
+    - abstracts HTML into a JS variate called <a href="https://legacy.reactjs.org/docs/introducing-jsx.html">JSX</a> which is converted into HTML and JS by the preprocessor <a href="https://babeljs.io/">Babel</a>.
+
+- React <a href="https://react.dev/learn/your-first-component">Components</a>
+    - <a href="https://codepen.io/NuSigma/pen/poOMmXe">Assignment</a>: Modify the codpen by:
+        1. Adding a new property to the Demo component that provides the background color
+        2. Adding another state variable that changes the color on a mouse over event
+    - Purpose of Components: to modularize code.
+    -
+
 
 
 ### Mar 31-Apr 3, 2023 - React Tic-tac-toe tutorial, Reactivity
-- 
+- React Tic-Tac-toe
+    - Follow the <a href="https://react.dev/learn/tutorial-tic-tac-toe">tutorial</a>
+
+- Reactivity: making the UI react to tchanges in user input or data. Can be applied to the following pices of a React component:
+    - `props`
+
+    - `state`
+
+    - `render`
+- <a href="https://codepen.io/NuSigma/pen/JjagQXe">Assignment</a>: Modify the codepen. Change the input from using the color and radio button to an edit box that displays text as you type. 
 
 
 ### Apr 3-5, 2023 - Hooks, Toolchains, React CLI, Start up deliverable - Service
