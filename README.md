@@ -878,7 +878,7 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 - Endpoint Testing
     - <a href="https://jestjs.io/">Jest</a>
 - Simon Service
-    * Setup to deploy on port 3000, STARTUP  should be on *PORT 4000*
+    * Setup to deploy on port 3000, STARTUP should be on *PORT 4000*
     - Deploy with deployService.sh (for mine):
         ```
         ./deployService.sh -k ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem -h numealplanz.click -s simon
@@ -886,7 +886,7 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 
 ### Mar 22-24, 2023 - Storage Services, Data Services, Simon DB
 - Storage Services
-    - Usually a BAD IDEA to stor files on your server because:
+    - Usually a BAD IDEA to store files on your server because:
         1. Limited drive space. 
         2. You should keep the server easilly replacable. It is not intended for permenant storage.
         3. Need backup copies of app and user files.
@@ -910,9 +910,59 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         2. Use the `MongoClient` object to make a client connection to the database server
         3. With the client connection you can get a database object from the collection object.
 
-    - 
+    - Keeping Passwords Secure
+        - Load your credentials when you application loads with the below:
+            ```JavaScript
+            const userName = process.env.MONGOUSER;
+            const password = process.env.MONGOPASSWORD;
+            const hostname = process.env.MONGOHOSTNAME;
 
-- Simon DB
+            if (!userName) {
+            throw Error("Database not configured. Set environment variables");
+            }
+            ```
+        - Then, set the MongoDB Atlas credentials in environment variables in your production environment by:
+            1. ssh into your production environment (web server):
+                ```
+                ssh -i ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem ubuntu@18.219.210.238
+                ```
+            2. Open global environment settings file via:
+                `sudo vi /etc/environment`
+            3. Replace the values for the credentials below (currently set for the class demo MongoDB server) to your own values. Like below:
+                ```
+                export MONGOUSER=<yourmongodbusername>
+                export MONGOPASSWORD=<yourmongodbpassword>
+                export MONGOHOSTNAME=<yourmongodbhostname>
+                ```
+            4. Save then exit your SSH session and reconect again so it reloads.
+            5. Tell your service to use the new values by using our service daemon, PM2 to reload its stored environment. Run the below:
+                ```
+                pm2 restart all --update-env
+                pm2 save
+                ```
+        - Setting environment variables for *development environment* in WINDOWS:
+                1. From the Start Menu search for "system environment variables" in the search bar
+                2. Go to the Advanced Tab
+                3. Click on Environment Variables
+                4. Under SYSTEM variables click on NEW
+                5. Add each variable individually into the variables information and click APPLY and OK
+                6. Restart program needing the variables
+                
+    - Testing MongoDB
+
+- Simon DB: <a href="https://github.com/webprogramming260/simon-db.git">Class Git Repo</a>
+    - Update Simon steps:
+        1. create database.js
+        2. update index.js to work with database.js
+        3. Test that the scores table is now persistent (via live server in *development environment*)
+        4. Set environment variables in website for MongoDB Atlas (see "Data Services" Heading "Keeping Passwords Secure" Subsection)
+        5. deploy to production:
+            ```
+            ./deployService.sh -k ~/OneDrive/Dylan\ School/\#CS260\ -\ Web\ Programming/CS260\(Key\ Pair\ Login\).pem -h numealplanz.click -s simon
+            ```
+        6. ??? simon now does not work. HTTP ERROR 502
+            - fix spelling error. there is an 'i' in 'require'
+        7. check MongoDB cluster 
 
 ### Mar 24-27, 2023 - Authorization Services, Acc. Creation & Login, Simon Login
 - Authorization Services
@@ -944,13 +994,14 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
         1. Adding a new property to the Demo component that provides the background color
         2. Adding another state variable that changes the color on a mouse over event
     - Purpose of Components: to modularize code.
-    -
+    - 
 
 
 
 ### Mar 31-Apr 3, 2023 - React Tic-tac-toe tutorial, Reactivity
 - React Tic-Tac-toe
     - Follow the <a href="https://react.dev/learn/tutorial-tic-tac-toe">tutorial</a>
+    - <a href="">Assignment</a>: submit completed tutorial using codesandbox.io.
 
 - Reactivity: making the UI react to tchanges in user input or data. Can be applied to the following pices of a React component:
     - `props`
@@ -962,11 +1013,19 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 
 
 ### Apr 3-5, 2023 - Hooks, Toolchains, React CLI, Start up deliverable - Service
-- 
+- Hooks
+
+- Toolchains
+
+- React CLI
+
+- Start up deliverable - Service
 
 
 ### Apr 5-7, 2023 - React Router, Simon React
-- 
+- React Router
+
+- Simon React
 
 
 ### Apr 7-10, 2023 - Security, OWASP top 10, Practice
