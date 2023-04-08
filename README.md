@@ -875,8 +875,10 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
     - The problem: testing your application on all the different browsers on all the different devices of all different sizes and... on and on.
     - Playwright (<a href="https://playwright.dev/docs/getting-started-VSCode">in VS Code</a>)
     - <a href="https://www.browserstack.com/">Browser Stack</a>
+
 - Endpoint Testing
     - <a href="https://jestjs.io/">Jest</a>
+
 - Simon Service
     * Setup to deploy on port 3000, STARTUP should be on *PORT 4000*
     - Deploy with deployService.sh (for mine):
@@ -966,10 +968,111 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 
 ### Mar 24-27, 2023 - Authorization Services, Acc. Creation & Login, Simon Login
 - Authorization Services
+    - authentication token is often stored in a cookie, stored on the user's device, then passed back to your web service on each request.
+    - it's important to determine what a user is authorized to do in your application
+    - To reduce complexity there are many packages you can use.
+        - These often use standard protocols like: <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>, <a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language">SAML</a>, and <a href="https://en.wikipedia.org/wiki/OpenID">OIDC</a>
+        - Auth services you can experiment with: <a href="https://aws.amazon.com/cognito/">AWS Cognito</a> or <a href="https://firebase.google.com/docs/auth">Google Firebase</a>
 
 - Account Creation and Login
+    - Authentication Tokens
+        - <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> (Universally Unique Identifier) package: used to generate an authentication token    
+            ```JavaScript
+            const uuid = require('uuid');
+            
+            token: uuid.v4();
+            ```
+    - Passwords
+        - hashing passwords using <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a>
+            ```JavaScript
+            const bcrypt = require('bcrypt');
+
+            async function createUser(email, password) {
+            // Hash the password before we insert it into the database
+            const passwordHash = await bcrypt.hash(password, 10);
+
+            const user = {
+                email: email,
+                password: passwordHash,
+                token: uuid.v4(),
+            };
+            await collection.insertOne(user);
+
+            return user;
+            }
+            ```
+    - Passing Authentication Tokens
+        - `cookie-parser` package provides middleware for HTTP cookies
+        ```JavaScript
+        const cookieParser = require('cookie-parser'); //import cookieParser Object
+
+        // Use the cookie parser middleware
+        app.use(cookieParser());
+
+        //when a user is created or logs in set cookie header
+        apiRouter.post('/auth/create', async (req, res) => {
+        if (await DB.getUser(req.body.email)) {
+            res.status(409).send({ msg: 'Existing user' });
+        } else { 
+            const user = await DB.createUser(req.body.email, req.body.password);
+
+            // Set the cookie
+            setAuthCookie(res, user.token);
+
+            res.send({
+            id: user._id,
+            });
+        }
+        });
+
+        function setAuthCookie(res, authToken) {
+        res.cookie('token', authToken, {
+            // these options make our cookie as secure as possible
+            secure: true, //requires HTTPS be used when sending cookie back to server
+            httpOnly: true, //prevents JS running on the browser from reading cookie
+            sameSite: 'strict', //will only allow returning cookie to domain that generated it
+        });
+        }
+        ```
+    - Login Endpoint
+        - needs to get hashed pwrd from database, compare it to the provided pword using `bcrypt.compare`
+            - then if incorrect pasword or no user with email then return unauthroized (401) or if successful set authentication token in the cookie
+            ```JavaScript
+            app.post('/auth/login', async (req, res) => {
+                const user = await getUser(req.body.email);
+                if (user) {
+                    if (await bcrypt.compare(req.body.password, user.password)) {
+                        setAuthCookie(res, user.token);
+                        res.send({ id: user._id });
+                        return;
+                    }
+                }
+                res.status(401).send({ msg: 'Unauthorized' });
+            });
+            ```
+    - GetMe Endpoint
+        ```JavaScript
+        app.get('/user/me', async (req, res) => {
+        authToken = req.cookies['token'];
+        const user = await collection.findOne({ token: authToken });
+        if (user) {
+            res.send({ email: user.email });
+            return;
+        }
+        res.status(401).send({ msg: 'Unauthorized' });
+        });
+        ```
+    - <a href="https://github.com/webprogramming260/.github/blob/main/profile/webServices/login/login.md">Example Code</a> under "Final Code" section
 
 - Simon Login
+    - Steps to update to Simon Login:
+        1. Update UI: in public folder update; index.html, login.js and login.css
+        2. Update index.js
+        3. test login
+        4. deploy to production
+        5. break it again...
+            - forgot to install cookie-parser, bcrypt, and uuid
+ 
 
 
 ### Mar 27-29, 2023 - WebSocket, Debug WebSocket, WebSocket Chat, Simon WebSocket
@@ -1029,7 +1132,11 @@ Assignment: https://codepen.io/NuSigma/pen/eYjqgbG <br>
 
 
 ### Apr 7-10, 2023 - Security, OWASP top 10, Practice
-- 
+- Security
+
+- OWASP Top 10
+
+- Practice
 
 
 ### Apr 10-12, 2023 - Gruyere?
